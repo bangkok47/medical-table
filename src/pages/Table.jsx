@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styles from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import { useTable } from "react-table";
 import { COLUMNS } from "../components/column";
@@ -42,10 +43,16 @@ const TableContainer = styles.div`
 `;
 
 function Table() {
+  const history = useHistory();
+  const handleRowClick = (row) => {
+    console.log(row);
+    history.push(`/user/${row.target.textContent}`);
+  };
+
   const api =
     "http://www.filltext.com/?rows=100&id={index}&email={email}&username={username}&password={randomString|5}&business={business}&pretty=true";
+
   const [users, setUsers] = React.useState([]);
-  console.log(users);
 
   React.useEffect(() => {
     axios.get(api).then((res) => setUsers(res.data));
@@ -60,7 +67,6 @@ function Table() {
       columns,
       data,
     });
-  console.log(headerGroups);
 
   return (
     <TableContainer>
@@ -80,7 +86,7 @@ function Table() {
           {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <tr key={i} {...row.getRowProps()}>
+              <tr onClick={handleRowClick} key={i} {...row.getRowProps()}>
                 {row.cells.map((cell, i) => {
                   return (
                     <td key={i} {...cell.getCellProps()}>
