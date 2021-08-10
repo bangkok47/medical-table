@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "styled-components";
 
 import { useTable } from "react-table";
-import { COLUMNS } from "./column";
+import { COLUMNS } from "../components/column";
 
 const TableContainer = styles.div`
     max-width: 1400px;
@@ -15,7 +15,7 @@ const TableContainer = styles.div`
       border-collapse: collapse;
       width: 100%;
       font-family: 'News Cycle';
-      font-size: 12px;
+      
 
       td,
       th {

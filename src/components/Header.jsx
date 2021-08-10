@@ -14,6 +14,7 @@ const Input = styles.input`
     margin: 20px;
     border: 1.5px solid #e1e1e1;
     border-radius: 30px;
+    font-size: 12px;
     outline: none;
 `;
 
@@ -27,7 +28,7 @@ const SearchBtn = styles.button`
     border-radius: 30px;
     text-align: center;
     color: #fff;
-    font-size: large;
+    font-size: 15px;
     font-weight: 700;
     outline: none;
     cursor: pointer;
