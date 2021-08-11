@@ -1,46 +1,11 @@
 import React from "react";
 import axios from "axios";
-import styles from "styled-components";
 import { useHistory } from "react-router-dom";
 
+import { TableContainer } from "../components/TableContainer";
+
 import { useTable } from "react-table";
-import { COLUMNS } from "../components/column";
-
-const TableContainer = styles.div`
-    max-width: 1400px;
-    margin: auto;
-    padding: 30px;
-    margin-top: 35px;
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-family: 'News Cycle';
-      
-
-      td,
-      th {
-        padding: 8px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-align: center;
-      }
-
-     th {
-       background-color: #24a4ff;
-       color: #fff;
-     }
-
-     tr {
-      border: 1px solid #ddd;
-      cursor: pointer;
-     }
-
-     tr:hover {
-       background-color: #a8dfff; 
-     }
-    }
-`;
+import { COLUMNS } from "../column";
 
 function Table() {
   const history = useHistory();

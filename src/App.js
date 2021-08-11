@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Table from "./pages/Table";
-import UserInfo from "./pages/UserInfo";
+import User from "./pages/User";
 
 const AppWrapper = styles.div`
   min-height: 100vh;
@@ -21,7 +21,7 @@ function App() {
           <Table />
         </Route>
         <Route path="/user">
-          <UserInfo />
+          <User />
         </Route>
       </AppWrapper>
     </div>
