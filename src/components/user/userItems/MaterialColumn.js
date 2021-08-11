@@ -7,7 +7,7 @@ function MaterialColumn(props) {
   return (
     <>
       <ItemTitle {...props} />
-      <ItemBody />
+      <ItemBody></ItemBody>
     </>
   );
 }

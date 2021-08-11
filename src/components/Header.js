@@ -5,7 +5,7 @@ import Button from "./Button";
 import Input from "./Input";
 
 const HeaderContainer = styled.div`
-  background: #f2f2f2;
+  background: #f5f9fc;
   display: flex;
   justify-content: center;
   align-items: center;
