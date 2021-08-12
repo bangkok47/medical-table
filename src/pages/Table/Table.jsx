@@ -4,8 +4,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useTable } from "react-table";
 
-import { TableContainer } from "../components/TableContainer";
-import { COLUMNS } from "../data/column";
+import { TableContainer } from "./TableContainer";
+import { COLUMNS } from "../../data/column";
 
 function Table() {
   const history = useHistory();

@@ -1,12 +1,12 @@
 import React from "react";
 
-import UserInfo from "../components/user/UserInfo";
-import UserInfoTitle from "../components/user/UserTitle";
-import { UserContainer } from "../components/user/UserContainer";
-import UserColumns from "../components/user/UserColumns";
-import NotesColumn from "../components/user/userItems/NotesColumn";
-import MaterialColumn from "../components/user/userItems/MaterialColumn";
-import ResultsColumn from "../components/user/userItems/ResultsColumn";
+import UserInfo from "../components/simple/UserInfo/UserInfo";
+import UserInfoTitle from "../components/simple/User/UserTitle";
+import { UserContainer } from "../components/simple/User/UserContainer";
+import UserColumns from "../components/simple/User/UserColumns";
+import NotesColumn from "../components/simple/UserItems/Notes/NotesColumn";
+import MaterialColumn from "../components/simple/UserItems/Material/MaterialColumn";
+import ResultsColumn from "../components/simple/UserItems/Results/ResultsColumn";
 
 import NotesIcon from "../assets/NotesIcon";
 import MaterialIcon from "../assets/MaterialIcon";
@@ -18,7 +18,7 @@ function User() {
     <div>
       <UserInfoTitle>
         <UserIcon />
-        <UserInfo color={"#24a4ff"} fontSize={"30"} />
+        <UserInfo color={"#0694f9"} fontSize={"30"} />
       </UserInfoTitle>
 
       <UserContainer>

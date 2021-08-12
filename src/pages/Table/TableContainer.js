@@ -20,7 +20,7 @@ export const TableContainer = styled.div`
     }
 
     th {
-      background-color: #24a4ff;
+      background-color: #0694f9;
       color: #fff;
     }
 

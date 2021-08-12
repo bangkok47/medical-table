@@ -1,22 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 
-import { ItemTitle } from "./ItemTitle";
-import { ItemBody } from "./ItemBody";
-
-const Info = styled.div`
-  margin: 30px 20px 30px 40px;
-  font-size: 12px;
-
-  li {
-    margin-bottom: 20px;
-    color: grey;
-  }
-
-  li::marker {
-    color: blue;
-  }
-`;
+import { Info } from "./StyledNotesColumn";
+import { ItemTitle } from "../StyledItemTitle";
+import { ItemBody } from "../StyledItemBody";
 
 function NotesColumn(props) {
   return (

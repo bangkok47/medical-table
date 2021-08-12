@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const StyledInput = styled.input.attrs({
+export const StyledInput = styled.input.attrs({
   type: "text",
 })`
   padding: 13px;
@@ -15,9 +14,3 @@ const StyledInput = styled.input.attrs({
     color: grey;
   }
 `;
-
-const Input = (props) => {
-  return <StyledInput {...props} />;
-};
-
-export default Input;

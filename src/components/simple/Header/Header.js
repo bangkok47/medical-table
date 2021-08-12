@@ -1,16 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 
-import Button from "./Button";
-import Input from "./Input";
-
-const HeaderContainer = styled.div`
-  background: #f5f9fc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid #e1e1e1;
-`;
+import { HeaderContainer } from "./StyledHeader";
+import Button from "../../ui/Button/Button";
+import Input from "../../ui/Input/Input";
 
 function Header() {
   return (

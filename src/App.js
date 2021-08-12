@@ -2,8 +2,8 @@ import React from "react";
 import styles from "styled-components";
 import { Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Table from "./pages/Table";
+import Header from "./components/simple/Header/Header";
+import Table from "./pages/Table/Table";
 import User from "./pages/User";
 
 const AppWrapper = styles.div`
