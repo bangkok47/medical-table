@@ -38,6 +38,18 @@ const Table = styled.table`
 `;
 
 function ResultsColumn(props) {
+  const rows = [
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+    { data: "1.02.2020", test: "Blood Test", doc: "Maccabi" },
+  ];
   return (
     <>
       <ItemTitle {...props} />
@@ -52,56 +64,13 @@ function ResultsColumn(props) {
           </thead>
 
           <tbody>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
-            <tr>
-              <td>1/02/2020</td>
-              <td>Blood Test</td>
-              <td>Maccabi</td>
-            </tr>
+            {rows.map((row, i) => (
+              <tr key={i}>
+                <td key={i}>{row.data}</td>
+                <td key={i}>{row.test}</td>
+                <td key={i}>{row.doc}</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </ItemBody>
