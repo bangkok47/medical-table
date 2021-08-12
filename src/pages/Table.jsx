@@ -1,16 +1,15 @@
 import React from "react";
 import axios from "axios";
+
 import { useHistory } from "react-router-dom";
+import { useTable } from "react-table";
 
 import { TableContainer } from "../components/TableContainer";
-
-import { useTable } from "react-table";
 import { COLUMNS } from "../data/column";
 
 function Table() {
   const history = useHistory();
   const handleRowClick = (row) => {
-    console.log(row);
     history.push(`/user/${row.target.textContent}`);
   };
 
