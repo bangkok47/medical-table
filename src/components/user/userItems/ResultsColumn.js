@@ -28,8 +28,12 @@ const Table = styled.table`
   }
 
   tbody > tr:hover {
-    background-color: #a8dfff;
+    background-color: #42b1ff;
     cursor: pointer;
+
+    td {
+      color: #fff;
+    }
   }
 `;
 

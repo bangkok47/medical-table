@@ -15,6 +15,10 @@ const StyledButton = styled.button`
   font-weight: 700;
   outline: none;
   cursor: pointer;
+
+  &:hover {
+    background: #61bdff;
+  }
 `;
 
 function Button(props) {

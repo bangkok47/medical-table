@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { TableContainer } from "../components/TableContainer";
 
 import { useTable } from "react-table";
-import { COLUMNS } from "../column";
+import { COLUMNS } from "../data/column";
 
 function Table() {
   const history = useHistory();
