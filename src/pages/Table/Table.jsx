@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useTable, usePagination } from "react-table";
 
-import { setUsers } from "../../redux/actions/actions";
+import { setUsers, getOneUser } from "../../redux/actions/actions";
 
 import { TableContainer } from "../../components/simple/Table/TableContainer";
 import { COLUMNS } from "../../data/column";
@@ -13,12 +13,13 @@ import { COLUMNS } from "../../data/column";
 import TablePagination from "../../components/simple/Table/TablePagination/TablePagination";
 
 function Table() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const users = useSelector(({ users }) => users.users);
 
-  const history = useHistory();
   const handleRowClick = (row) => {
-    console.log(row.original.username);
+    //этот обьект(обьект всех данных 1го пользователя)
+    dispatch(getOneUser(row.original));
     history.push(`/user/${row.original.username}`);
   };
 

@@ -1,16 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { removeUser } from "../../../redux/actions/actions";
 
 import { UserContainer, UserItem, BackButton } from "./StyledUserInfo";
 import UserIcon from "../../../assets/UserIcon";
 import ArrowLeft from "../../../assets/ArrowLeft";
 
 function UserInfo({ color, fontSize }) {
+  const dispatch = useDispatch();
+
+  const remove = () => {
+    dispatch(removeUser());
+  };
   return (
     <UserContainer>
       <Link to="/">
-        <BackButton>
+        <BackButton onClick={remove}>
           <ArrowLeft />
           Back
         </BackButton>

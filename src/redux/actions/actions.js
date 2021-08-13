@@ -19,3 +19,16 @@ export const setUsers = () => async (dispatch) => {
     });
   }
 };
+
+export const getOneUser = (obj) => {
+  return {
+    type: ActionTypes.GET_ONE_USER,
+    payload: obj,
+  };
+};
+
+export const removeUser = () => {
+  return {
+    type: ActionTypes.REMOVE_USER,
+  };
+};
