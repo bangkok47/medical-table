@@ -9,13 +9,13 @@ export const StyledButton = styled.button`
   border: 0;
   border-radius: 30px;
   text-align: center;
-  color: #fff;
+  color: ${(props) => props.color || "#fff"};
   font-size: 15px;
   font-weight: 700;
   outline: none;
   cursor: pointer;
 
-  &:hover {
+  &:active {
     background: #61bdff;
   }
 `;

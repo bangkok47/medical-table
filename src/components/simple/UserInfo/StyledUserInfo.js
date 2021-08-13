@@ -2,13 +2,26 @@ import styled from "styled-components";
 
 export const UserContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const UserItem = styled.span`
   margin-right: 20px;
   font-size: ${(props) => props.fontSize || "12px"};
   color: ${(props) => props.color || "#bdbebd"};
-  text-align: center;
+`;
+
+export const BackButton = styled.button`
+  position: relative;
+  right: 150px;
+  min-width: 60px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  color: #0694f9;
+
+  &:active {
+    color: #a8dfff;
+  }
 `;

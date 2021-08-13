@@ -1,36 +1,57 @@
 import React from "react";
-import axios from "axios";
+
+import { useDispatch, useSelector } from "react-redux";
 
 import { useHistory } from "react-router-dom";
-import { useTable } from "react-table";
+import { useTable, usePagination } from "react-table";
 
-import { TableContainer } from "./TableContainer";
+import { setUsers } from "../../redux/actions/actions";
+
+import { TableContainer } from "../../components/simple/Table/TableContainer";
 import { COLUMNS } from "../../data/column";
 
+import TablePagination from "../../components/simple/Table/TablePagination/TablePagination";
+
 function Table() {
+  const dispatch = useDispatch();
+  const users = useSelector(({ users }) => users.users);
+
   const history = useHistory();
-  const handleRowClick = (row) => {
-    history.push(`/user/${row.target.textContent}`);
+  const handleRowClick = (e) => {
+    console.log(e.target);
+    history.push("/user");
   };
 
-  const api =
-    "http://www.filltext.com/?rows=100&id={index}&email={email}&username={username}&password={randomString|5}&business={business}&pretty=true";
-
-  const [users, setUsers] = React.useState([]);
-
   React.useEffect(() => {
-    axios.get(api).then((res) => setUsers(res.data));
-  }, []);
+    dispatch(setUsers());
+  }, [dispatch]);
 
   const columns = React.useMemo(() => COLUMNS, [COLUMNS]);
 
   const data = React.useMemo(() => users, [users]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
-    useTable({
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    setPageSize,
+    state,
+  } = useTable(
+    {
       columns,
       data,
-    });
+    },
+    usePagination
+  );
+
+  const { pageIndex, pageSize } = state;
 
   return (
     <TableContainer>
@@ -47,10 +68,14 @@ function Table() {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {page.map((row, i) => {
             prepareRow(row);
             return (
-              <tr onClick={handleRowClick} key={i} {...row.getRowProps()}>
+              <tr
+                onClick={(e) => handleRowClick(e)}
+                key={i}
+                {...row.getRowProps()}
+              >
                 {row.cells.map((cell, i) => {
                   return (
                     <td key={i} {...cell.getCellProps()}>
@@ -63,6 +88,17 @@ function Table() {
           })}
         </tbody>
       </table>
+
+      <TablePagination
+        prev={previousPage}
+        canPrev={canPreviousPage}
+        next={nextPage}
+        canNext={canNextPage}
+        pageIndex={pageIndex}
+        pageOptions={pageOptions}
+        setPageSize={setPageSize}
+        pageSize={pageSize}
+      />
     </TableContainer>
   );
 }

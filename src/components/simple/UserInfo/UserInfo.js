@@ -1,11 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-import { UserContainer, UserItem } from "./StyledUserInfo";
+import { UserContainer, UserItem, BackButton } from "./StyledUserInfo";
+import UserIcon from "../../../assets/UserIcon";
+import ArrowLeft from "../../../assets/ArrowLeft";
 
 function UserInfo({ color, fontSize }) {
   return (
     <UserContainer>
+      <Link to="/">
+        <BackButton>
+          <ArrowLeft />
+          Back
+        </BackButton>
+      </Link>
+      <UserIcon />
       <UserItem color={color} fontSize={fontSize}>
         <b>Sara Sara</b>
       </UserItem>

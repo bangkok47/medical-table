@@ -10,14 +10,13 @@ import ResultsColumn from "../components/simple/UserItems/Results/ResultsColumn"
 
 import NotesIcon from "../assets/NotesIcon";
 import MaterialIcon from "../assets/MaterialIcon";
-import UserIcon from "../assets/UserIcon";
+
 import ResultsIcon from "../assets/ResultsIcon";
 
 function User() {
   return (
     <div>
       <UserInfoTitle>
-        <UserIcon />
         <UserInfo color={"#0694f9"} fontSize={"30"} />
       </UserInfoTitle>
 
