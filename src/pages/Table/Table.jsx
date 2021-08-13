@@ -17,9 +17,9 @@ function Table() {
   const users = useSelector(({ users }) => users.users);
 
   const history = useHistory();
-  const handleRowClick = (e) => {
-    console.log(e.target);
-    history.push("/user");
+  const handleRowClick = (row) => {
+    console.log(row.original.username);
+    history.push(`/user/${row.original.username}`);
   };
 
   React.useEffect(() => {
@@ -72,7 +72,7 @@ function Table() {
             prepareRow(row);
             return (
               <tr
-                onClick={(e) => handleRowClick(e)}
+                onClick={() => handleRowClick(row)}
                 key={i}
                 {...row.getRowProps()}
               >
