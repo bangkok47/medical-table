@@ -13,12 +13,11 @@ import { COLUMNS } from "../../data/column";
 import TablePagination from "../../components/simple/Table/TablePagination/TablePagination";
 
 function Table() {
-  const history = useHistory();
   const dispatch = useDispatch();
+  const history = useHistory();
   const users = useSelector(({ users }) => users.users);
 
   const handleRowClick = (row) => {
-    //этот обьект(обьект всех данных 1го пользователя)
     dispatch(getOneUser(row.original));
     history.push(`/user/${row.original.username}`);
   };

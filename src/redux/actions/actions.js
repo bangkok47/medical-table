@@ -1,13 +1,11 @@
 import { ActionTypes } from "../constants/action-types";
 import axios from "axios";
 
-export const setUsers = () => async (dispatch) => {
-  const api =
-    "http://www.filltext.com/?rows=100&id={index}&email={email}&username={username}&password={randomString|5}&business={business}&pretty=true";
+const api = "https://611a2e82cbf1b30017eb5569.mockapi.io/users";
 
+export const setUsers = () => async (dispatch) => {
   try {
     const response = await axios.get(api);
-
     dispatch({
       type: ActionTypes.SET_USERS,
       payload: response.data,
@@ -20,11 +18,15 @@ export const setUsers = () => async (dispatch) => {
   }
 };
 
-export const getOneUser = (obj) => {
-  return {
+export const getOneUser = (obj) => async (dispatch) => {
+  const actualUsers = await axios.get(api);
+
+  const filteredUser = actualUsers.data.filter((user) => user.id == obj.id);
+
+  dispatch({
     type: ActionTypes.GET_ONE_USER,
-    payload: obj,
-  };
+    payload: filteredUser,
+  });
 };
 
 export const removeUser = () => {
