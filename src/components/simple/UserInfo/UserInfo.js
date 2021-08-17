@@ -1,53 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
-import { removeUser } from "../../../redux/actions/actions";
-
-import { UserContainer, UserItem, BackButton } from "./StyledUserInfo";
+import { UserContainer, UserItem } from "./StyledUserInfo";
 import UserIcon from "../../../assets/UserIcon";
-import ArrowLeft from "../../../assets/ArrowLeft";
 
-function UserInfo({ color, fontSize }) {
-  const dispatch = useDispatch();
-  const user = useSelector(({ users }) => users.user);
-
-  const remove = () => {
-    dispatch(removeUser());
-  };
-
+function UserInfo({
+  data = {},
+  color = "#0694f9",
+  fontSize = "12px",
+  children,
+}) {
   return (
     <UserContainer>
-      <Link to="/">
-        <BackButton onClick={remove}>
-          <ArrowLeft />
-          Back
-        </BackButton>
-      </Link>
+      {children}
       <UserIcon />
       <UserItem color={color} fontSize={fontSize}>
-        <b>{user.map((el) => el.username)}</b>
+        <b>{data?.username}</b>
       </UserItem>
       <UserItem>
-        <b>{user.map((el) => el.email)}</b>
+        <b>{data?.email}</b>
       </UserItem>
       <UserItem>
-        <b>Hospital</b>: {user.map((el) => el.business)}
+        <b>Hospital</b>: {data?.business}
       </UserItem>
       <UserItem>
-        <b>HMO</b>: {user.map((el) => el.password)}
+        <b>HMO</b>: {data?.password}
       </UserItem>
       <UserItem>
-        <b>Last update</b>: {user.map((el) => el.id)}
+        <b>Last update</b>: {data?.id}
       </UserItem>
     </UserContainer>
   );
 }
 
 UserInfo.propTypes = {
-  color: PropTypes.string,
-  fontSize: PropTypes.string,
+  color: PropTypes.string.isRequired,
+  fontSize: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    username: PropTypes.string,
+    email: PropTypes.string,
+    business: PropTypes.string,
+    password: PropTypes.string,
+  }),
 };
 
 export default UserInfo;

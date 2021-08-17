@@ -1,13 +1,10 @@
-import React from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-
+import React, { useEffect, useMemo } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useTable, usePagination } from "react-table";
 
 import { setUsers, getOneUser } from "../../redux/actions/actions";
-
-import { TableContainer } from "../../components/simple/Table/TableContainer";
+import { TableContainer } from "./TableContainer";
 import { COLUMNS } from "../../data/column";
 
 import TablePagination from "../../components/simple/Table/TablePagination/TablePagination";
@@ -19,16 +16,19 @@ function Table() {
 
   const handleRowClick = (row) => {
     dispatch(getOneUser(row.original));
-    history.push(`/user/${row.original.username}`);
+    history.push({
+      pathname: `/user/${row.original.username}`,
+      state: { id: row.original.id },
+    });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(setUsers());
   }, [dispatch]);
 
-  const columns = React.useMemo(() => COLUMNS, [COLUMNS]);
+  const columns = useMemo(() => COLUMNS, [COLUMNS]);
 
-  const data = React.useMemo(() => users, [users]);
+  const data = useMemo(() => users, [users]);
 
   const {
     getTableProps,

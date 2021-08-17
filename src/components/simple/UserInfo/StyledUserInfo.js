@@ -14,7 +14,7 @@ export const UserItem = styled.span`
 
 export const BackButton = styled.button`
   position: relative;
-  right: 155px;
+  right: 160px;
   min-width: 60px;
   border: none;
   background: white;

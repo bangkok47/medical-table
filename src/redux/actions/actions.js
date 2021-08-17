@@ -18,10 +18,9 @@ export const setUsers = () => async (dispatch) => {
   }
 };
 
-export const getOneUser = (obj) => async (dispatch) => {
+export const getOneUser = (id) => async (dispatch) => {
   const actualUsers = await axios.get(api);
-
-  const filteredUser = actualUsers.data.filter((user) => user.id == obj.id);
+  const filteredUser = actualUsers.data.filter((user) => user.id == id);
 
   dispatch({
     type: ActionTypes.GET_ONE_USER,
